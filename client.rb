@@ -38,10 +38,11 @@ EOF
           print "Enter drug: "
           send_message(choice)
         when "c"
-          abort("Bye!")
-          @server.close
+          @server.puts("exit")
         else
           puts "Unknown option! Please select (a) (b) or (c)"
+          sleep 1
+          system("clear")
           self.render_menu
 
       end
@@ -93,6 +94,9 @@ EOF
         elsif msg.slice(0..3).eql?("drg-")
           puts "#{msg[4..-1]}  \n\n"
           print "Enter drug: "
+        elsif msg == "Bye!"
+          puts msg
+          break
         else
           puts msg
         end

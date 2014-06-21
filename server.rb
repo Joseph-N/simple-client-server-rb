@@ -55,8 +55,11 @@ class Server
         puts "   --> Drugs lookup detected. Looking up.............#{msg[4..-1]}"
         results = @drugs.find(msg[4..-1])
         client.puts "drg-[#{results[:code]}]: #{results[:message]}"
+      elsif msg == "exit"
+        client.puts "Bye!"
+        client.close
       else
-        client.puts "[500 Internal Server Error]: Unkown request"
+        client.puts "Unknown request"
       end
     }
   end
