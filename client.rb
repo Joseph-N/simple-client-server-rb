@@ -41,8 +41,8 @@ EOF
           abort("Bye!")
           @server.close
         else
-          abort("Unkown option")
-          @server.close
+          puts "Unknown option! Please select (a) (b) or (c)"
+          self.render_menu
 
       end
       receive_message
@@ -60,7 +60,8 @@ EOF
 
         if msg == "back"
           system('clear')
-          render_menu
+
+          # break from loop
           break
         else
           # check choice to determine what to send
@@ -74,6 +75,7 @@ EOF
         end
 
       }
+      render_menu
     end
   end
 
