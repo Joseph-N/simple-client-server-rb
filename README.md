@@ -18,5 +18,43 @@ The drugs database is located at: `database/drugs.yml`
 ---
 The client prompts you if you want to look up dictionary definitions or drug expiry dates and loops until stopped.
 
+###Running
+
+---
+On one terminal, boot up the server
+
+```
+ruby server.rb
+
+```
+
+This should give you
+
+```
+=> Booting server
+=> Server successfully listening on 0.0.0.0:3000
+=> CTRL-C to shutdown server
+[2014-06-21 05:08:10] INFO WXserver 1.2
+
+```
+
+On another terminal, start the client
+
+```
+ruby client.rb
+
+```
+
+And this should also give you something similar
+
+```
+Welcome to smart server
+      Choose an option below
+        a) Dictionary Lookup
+        b) Drugs Lookup
+        c) Exit
+ Choice:
+```
+
 
 PS: Nothing serious :-)
