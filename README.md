@@ -25,7 +25,6 @@ On one terminal, boot up the server
 
 ```
 ruby server.rb
-
 ```
 
 This should give you
@@ -35,14 +34,12 @@ This should give you
 => Server successfully listening on 0.0.0.0:3000
 => CTRL-C to shutdown server
 [2014-06-21 05:08:10] INFO WXserver 1.2
-
 ```
 
 On another terminal, start the client
 
 ```
 ruby client.rb
-
 ```
 
 And this should also give you something similar
