@@ -17,14 +17,17 @@ class Client
   def render_menu
     @request = Thread.new do
       menu = <<-EOF
-      Choose an option below
-        a) Dictionary Lookup
-        b) Drugs Lookup
-        c) Exit
-      EOF
+Choose an option below
+  a) Dictionary Lookup
+  b) Drugs Lookup
+  c) Exit
+
+[INFO] Enter 'back' at any prompt to come back to this menu
+
+EOF
 
 
-      print "#{menu} Choice: "
+      print "#{menu}Choice: "
       choice = gets.chomp
 
       case choice
@@ -55,13 +58,21 @@ class Client
         # write as much as you want, read from console with the enter key, send message to the server
         msg = gets.chomp
 
-        # check choice to determine what to send
-        if choice.eql?("a")
-          # send message with dic- as identifier
-          @server.puts(msg.insert(0, "dic-"))
+        if msg == "back"
+          system('clear')
+          render_menu
+          break
         else
-          @server.puts(msg.insert(0, "drg-"))
+          # check choice to determine what to send
+          if choice.eql?("a")
+            # send message with dic- as identifier
+            @server.puts(msg.insert(0, "dic-"))
+          else
+            @server.puts(msg.insert(0, "drg-"))
+          end
+
         end
+
       }
     end
   end
@@ -89,5 +100,5 @@ class Client
   end
 end
 
-server = TCPSocket.new("localhost", 3000)
+server = TCPSocket.new("127.0.0.1", 3000)
 Client.new(server)
